@@ -63,7 +63,7 @@
       become: false
 
     - name: Initialize master
-      command: kubeadm init --token {{ admission_token }}
+      command: kubeadm init --token 226142.5670701689196203
       args:
         creates: /etc/kubernetes/pki # Not 100% sure that the creates clause is correct
       register: master_init
@@ -113,7 +113,7 @@
 
     - name: Read token from file
       include_vars: cfg/{{ cluster_name }}/token.yml
-      
+
     - name: Read master_ip_address from file
       include_vars: cfg/{{ cluster_name }}/master_ip_address.yml
 
@@ -128,7 +128,7 @@
       run_once: true
 
     - name: Join nodes to cluster
-      command: kubeadm join --token {{ admission_token }} {{ master_ip_address }}:6443
+      command: kubeadm join --token 226142.5670701689196203 {{ master_ip_address }}:6443
       args:
         creates: /etc/kubernetes/kubelet.conf # Not 100% sure that the creates clause is correct
       register: node_join

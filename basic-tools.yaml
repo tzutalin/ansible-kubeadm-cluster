@@ -1,0 +1,26 @@
+---
+
+- name: Installl packages for localhost
+
+  hosts: "{{ cluster_name }}"
+  #hosts: all
+
+  become: true
+
+  tasks:
+    - name: install the latest version of vim
+      package:
+        name: vim
+        state: latest
+
+  tasks:
+    - name: install the latest version of curl
+      package:
+        name: curl
+        state: latest
+
+  tasks:
+    - name: install the latest version of git
+      package:
+        name: git
+        state: latest

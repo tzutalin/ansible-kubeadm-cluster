@@ -5,7 +5,7 @@
   register: token_raw
 
 - set_fact:
-    admission_token: '{{ token_raw.stdout }}'
+    admission_token: '226142.5670701689196203'
 
 - file:
     path: cfg/{{ cluster_name }}
@@ -14,4 +14,4 @@
 - name: Save token as tokens/cluster_name.yml
   copy:
     dest: cfg/{{ cluster_name }}/token.yml
-    content: "admission_token: {{ admission_token }}"
+    content: "admission_token: 226142.5670701689196203"

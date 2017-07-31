@@ -1,0 +1,25 @@
+#
+# Example Inventory file to describe/configure a Kubernetes cluster via kubeadm
+#
+
+[k8s_cv]
+
+[k8s_cv:children]
+k8s_cv_master
+k8s_cv_node
+#
+# The cluster group contains two subgroups: master and node
+#
+
+[k8s_cv_master]
+172.16.98.220
+#
+# The master group should have only ONE FQDN defined/specified
+#
+
+[k8s_cv_master:vars]
+master_ip_address_configured=172.16.98.220
+
+[k8s_cv_node]
+172.16.98.221
+172.16.98.222
